@@ -1,0 +1,28 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:post="http://blog.tim.ramlot.eu/schemas/post"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>{{ site.url }}</loc>
+        <lastmod>{{ site.lastmod }}</lastmod>
+        <priority>1.00</priority>
+    </url>
+    {%- for post in site.posts -%}
+        <url>
+            <loc>{{ site.url }}{{ post.url }}</loc>
+            <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+            <changefreq>weekly</changefreq>
+            <priority>0.80</priority>
+            <post:title>{{ post.title }}</post:title>
+            {%- for tag in post.tags -%}
+                <post:tag>{{ tag }}</post:tag>
+            {%- endfor -%}
+            <post:desc>{{ post.desc }}</post:desc>
+        </url>
+    {%- endfor -%}
+</urlset>

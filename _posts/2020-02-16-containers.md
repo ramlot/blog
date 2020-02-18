@@ -4,7 +4,7 @@ title:      "Containers"
 date:       2019-02-16 12:00:00 +0000
 tags:       container docker cri-o containerd runc CRI OCI CNI gvisor
 desc:       What are containers and how do they work?
-image:      /assets/image/container-api.png
+image:      /assets/image/containers-thumbnail.png
 author:     tramlot
 social:
   name: Tim Ramlot

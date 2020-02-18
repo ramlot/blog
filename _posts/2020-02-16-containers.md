@@ -1,10 +1,16 @@
 ---
 layout:     post
 title:      "Containers"
-permalink:  containers
 date:       2019-02-16 12:00:00 +0000
 tags:       container docker cri-o containerd runc CRI OCI CNI gvisor
 desc:       What are containers and how do they work?
+image:      /assets/image/container-api.png
+author:     tramlot
+social:
+  name: Tim Ramlot
+  links:
+    - https://www.linkedin.com/in/timramlot/
+    - https://github.com/inteon
 ---
 
 # The problem

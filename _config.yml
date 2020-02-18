@@ -10,6 +10,8 @@ description: >-
   Technology blog about engineering, development and devops.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.ramlot.eu" # the base hostname & protocol for your site, e.g. http://example.com
+logo: /assets/image/blog-logo.png
+permalink: /:title/
 
 # Build settings
 plugins:

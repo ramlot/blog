@@ -1,0 +1,25 @@
+---
+layout: null
+---
+{
+    "short_name": "{{ site.short_name | escape }}",
+    "name": "{{ site.title | escape }}",
+    "description": "{{ site.description | escape }}",
+    "icons": [
+      {
+        "src": "/assets/logo/logo_512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "/assets/logo/logo_192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "{{ site.background_color | escape }}",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "{{ site.theme_color | escape }}"
+}

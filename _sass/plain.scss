@@ -1,9 +1,11 @@
 @import 'ext/fontello-font';
-@import 'ext/roboto-font';
 @import 'ext/poppins-medium-font';
+@import 'ext/roboto-regular-font';
 @import 'ext/poppins-regular-font';
+@import 'ext/merriweather-regular-font';
+@import 'ext/raleway-regular-font';
 @import 'ext/normalize';
-@import 'syntax';
+//@import 'syntax';
 
 $backgroundColor: #fff;
 $searchBoxColor: #f1f3f4;
@@ -44,6 +46,10 @@ img, embed, object, video {
 	}
 	&.width-500 {
 		width: 500px;
+	}
+	&.logo-right {
+		height: 1.5em;
+		float: right;
 	}
 }
 
@@ -111,14 +117,12 @@ h2 {
 			background-color: $tagColor;
 			padding: 5px 20px;
 			border-radius: 2px;
-			@media screen and (max-width: $mobileW){
-				margin-top: 5px;
-			}
+			margin-top: 5px;
 			margin-right: 10px;
 		}
 	}
+
 	.post-date {
-		margin-right: 10px;
 		color: $dateColor;
 	}
 
@@ -135,6 +139,9 @@ h2 {
 	.post-title {
 		font-weight: 600;
 		font-size: 4rem;
+		@media screen and (max-width: $mobileW){
+			font-size: 3rem;
+		}
 		letter-spacing: -0.25px;
 		line-height: 1.125;
 		color: $titleColor;
@@ -172,10 +179,17 @@ h2 {
 		h1, h2, h3, h4, h5, h6 {
 			line-height: 1em;
 			margin: 1.5em 0 0.5em 0;
+			text-align: left;
 		}
 
 		p {
 			margin-block-start: 0;
+		}
+
+		ul {
+			@media screen and (max-width: $mobileW){
+				padding-inline-start: 20px;
+			}
 		}
 	}
 }
@@ -193,4 +207,18 @@ h2 {
 	}
 	padding-left: 40px;
 	padding-right: 40px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
 }

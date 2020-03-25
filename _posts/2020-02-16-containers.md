@@ -25,7 +25,7 @@ In order to share resources an OS creates virtual subresources by partitioning a
 
 **Containers** are an alternative solution to the same problem. Using the process isolation features of the OS, we can allocate resources to a group of processes. The Linux kernel enables us to create such a setup by utilising their chroot (change root), cgroup (control group) and namespace APIs (Application Programing Interface). Child processes can be created such that they think by themselves as the root (init) process, without knowledge or access to their parent process resouces. Containers do, unlike VMs, share the OS kernel. As all containers must use the same OS type (eg. Windows or Linux) and the same kernel version, this allows us to have way less overhead than a VM with additional economical benefits.
 
-![Traditional vs virtual vs container](/assets/image/traditional-virtual-container.png)
+{% include picture.html img="/assets/image/traditional-virtual-container" ext="png" alt="Traditional vs virtual vs container" %}
 
 In practice, containers are often combined with virtual machines, to benefit from both technologies at the cost of the VM and container overhead.
 
@@ -38,7 +38,7 @@ Linux containers make use of control groups (cgroups) to limit the resources (me
 ## Isolation
 Linux namespaces allow containers to have isolation on 7 levels:
 
-![Namespaces](/assets/image/namespaces.png){: .width-400}
+{% include picture.html img="/assets/image/namespaces" ext="png" alt="Namespaces" class="width-400" %}
 
 * **UTS**: isolates hostname
 * **IPC**: isolates System V IPC, POSIX message queues
@@ -57,7 +57,7 @@ Possible example situations:
 ### Filesystem
 Containers use a layered filesystem, better known as a union filesystem. Changes are being overlayed on top of a base image, creating a new overlay image. This way, base images can be shared across containers and storage efficiency can be increased. At the lowest level all images start from the "scratch" image (an empty image). A scripting file (e.g. Dockerfile, Gockerfile) specifies what changes to that image must be done relative to its parent base image. Consequently, images are built and all changes are being registered by the overlay file system and packed with a reference to the base image. The built images contain the binaries that are used as starting point when starting a container. On startup we always start from the built image mounted as the root of our filesystem contained within a mount namespace. These images are stateless: after a container restarts, all changes to the file system are discarded. If we want to run stateful applications in containers (e.g. database), we need to mount a stateful filesystem into this container on startup. This can be a network share or a folder on the host filesystem.
 
-![Container image](/assets/image/container-image.png){: .width-500}
+{% include picture.html img="/assets/image/container-image" ext="png" alt="Container image" class="width-500" %}
 
 ### Networking
 In order to isolate our networking, we use networking namespaces. This means that every networking namespace needs at least a device used to communicate with the external world. Veth pairs, i.e. interconnected virtual ethernet devices, create such a setup, as if an ethernet cable connects them together. One of the ends is part of the networking namespace of the container. The other end is connected to a switch in the global networking interface. This switch interconnects all namespaces and can additionaly be connected to a physical interface in order to allow the containers to access the network/ internet.
@@ -89,7 +89,7 @@ Lastly, we have **Container Networking Interface (CNI)**, a specification defini
 
 Ideally, we have an implementation compatible with the OCI, CRI and CNI spec.
 
-![API overview](/assets/image/container-api.png)
+{% include picture.html img="/assets/image/container-api" ext="png" alt="API overview" %}
 
 ### Available software components
 Following list contains a variety of specifications, implementations and tools for the APIs above: <https://github.com/inteon/awesome-container>. Some of them are further addressed below:
@@ -113,10 +113,10 @@ Cri-o is an alternative to containerd. It is more optimized towards kubernetes (
 Found an error, got any tips? Feel free to create a git issue/ pull request on <https://github.com/ramlot/blog>.
 
 Author:
-<div>
+<div style="text-align: left;">
 <strong style="font-size: 20px;">Tim Ramlot</strong><br>
 <em>Engineering Student at Ghent University</em>
-<img style="height: 1.5em; float: right;" src="/assets/image/ghent-university-faculty-of-engineering.png"/><br>
+{% include picture.html img="/assets/image/ghent-university-faculty-of-engineering" ext="png" alt="Ghent university faculty of engineering" class="logo-right" %}
 <a href="https://www.linkedin.com/in/timramlot/">https://www.linkedin.com/in/timramlot/</a>
 </div>
 

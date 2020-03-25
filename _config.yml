@@ -5,18 +5,24 @@
 # in the templates via {{ site.myvariable }}.
 
 title: blog.ramlot.eu
+short_name: blog
 lastmod: 2020-02-16T12:00:00+00:00
 description: >-
   Technology blog about engineering, development and devops.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.ramlot.eu" # the base hostname & protocol for your site, e.g. http://example.com
-logo: /assets/image/blog-logo.png
+logo: /assets/logo/logo_512x512.png
 permalink: /:title/
+theme_color: "#022144"
+background_color: "#FFFFFF"
 
 # Build settings
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+sass:
+  style: compressed
 
 # Exclude from processing.
 # The following items will not be processed, by default.

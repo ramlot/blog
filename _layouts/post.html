@@ -5,11 +5,12 @@ layout: default
 
 <div class="nav-header">
   <a href="/">
-    <h1 class="blog">blog</h1>
+    <h1 class="blog">{{ site.short_name }}</h1>
   </a>
   <form class="search-box inline-search" action="/" method="get">
     <i class="icon-search"></i>
-    <input name="q" type="text"></input>
+    <input id="search" name="q" type="text"></input>
+    <label for="search" class="screen-reader-text">Search</label>
   </form>
 </div>
 <div class="post-container">

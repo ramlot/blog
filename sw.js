@@ -5,7 +5,7 @@ var CACHE_NAME = 'blog-ramlot-eu-cache-v1';
 var urlsToCache = [
   '/',
   {%- for post in site.posts -%}
-  {{ post.url | escape }},
+  '{{ post.url | escape }}',
   {%- endfor -%}
 ];
 

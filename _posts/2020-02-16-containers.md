@@ -3,7 +3,7 @@ layout:      post
 title:       Containers
 date:        2019-06-05 10:40:00 +0000
 tags:        container docker cri-o containerd runc CRI OCI CNI gvisor
-tagline:     What are containers and how do they work?
+desc:        What are containers and how do they work?
 description: Container workloads, how does docker internally work? How-to interpret the variety of container standards, specifications and interfaces. How do servers run containerized workloads? Benefits of installing containers vs virtual machines.
 image:       /assets/image/containers-thumbnail.png
 author:      tramlot

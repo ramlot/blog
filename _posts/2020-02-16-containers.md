@@ -2,7 +2,7 @@
 layout:      post
 date:        2019-06-05 10:40:00 +0000
 title:       Containers, what is a container and how do they work?
-description: How does docker internally work? Container standards and specifications: OCI, CRI, CNI. Server install: container vs virtual machine.
+description: "How does docker internally work? Container standards and specifications: OCI, CRI, CNI. Server install: container vs virtual machine."
 tags:        container docker cri-o containerd runc CRI OCI CNI gvisor
 h1_title:    Containers
 h2_desc:     What are containers and how do they work?

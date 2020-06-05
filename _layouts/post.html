@@ -18,8 +18,8 @@ layout: default
     <div class="post-date">{{ page.date | date: date_format }}</div>
   </div>
 
-  <h1 class="post-title">{{ page.title | escape }}</h1>
-  <h3 class="post-desc">{{ page.desc | escape }}</h3>
+  <h1 class="post-title">{{ page.h1_title | escape }}</h1>
+  <h2 class="post-desc">{{ page.h2_desc | escape }}</h2>
 
   <div class="post">
     {{ content }}

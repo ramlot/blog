@@ -23,7 +23,7 @@ layout: default
   </li>
 </ul>
 
-<template>
+<template id="template-posts">
   <ul class="posts" id="post-full-list">
     {%- for post in site.posts -%}
     <li id="template_post{{ post.id | replace: '/', '_' | replace: '.', '_' | escape }}" class="post-list-item">
@@ -68,7 +68,8 @@ layout: default
   searchInput.value = getUrlVars()['search'] || "";
   
   var postsList = document.querySelector('#post-list');
-  var postsFullList = document.querySelector('#post-full-list');
+  var template = document.querySelector("#template-posts");
+  var postsFullList = template.content.querySelector('#post-full-list');
 
   function fuseLoaded() {
     fuse = new Fuse(dataList, {

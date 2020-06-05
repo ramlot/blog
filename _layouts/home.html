@@ -23,27 +23,29 @@ layout: default
   </li>
 </ul>
 
-<ul class="posts" id="post-full-list" style="display: none;">
-  {%- for post in site.posts -%}
-  <li id="template_post{{ post.id | replace: '/', '_' | replace: '.', '_' | escape }}" class="post-list-item">
-    {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
-    <a class="post-link" href="{{ post.url | relative_url }}">
-      <h2 class="post-title">{{ post.h1_title | escape }}</h2>
-    </a>
-    <div class="post-meta">
-      <ul class="post-tags">
-        {%- for tag in post.tags limit:3 -%}
-        <li>{{ tag }}</li>
-        {%- endfor -%}
-      </ul>
-      <div class="post-date">{{ post.date | date: date_format }}</div>
-    </div>
-  </li>
-  {%- endfor -%}
-  <li id="template_no_results" class="post-list-item">
-    <h3 class="post-title">No results found</h3>
-  </li>
-</ul>
+<template>
+  <ul class="posts" id="post-full-list">
+    {%- for post in site.posts -%}
+    <li id="template_post{{ post.id | replace: '/', '_' | replace: '.', '_' | escape }}" class="post-list-item">
+      {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
+      <a class="post-link" href="{{ post.url | relative_url }}">
+        <h2 class="post-title">{{ post.h1_title | escape }}</h2>
+      </a>
+      <div class="post-meta">
+        <ul class="post-tags">
+          {%- for tag in post.tags limit:3 -%}
+          <li>{{ tag }}</li>
+          {%- endfor -%}
+        </ul>
+        <div class="post-date">{{ post.date | date: date_format }}</div>
+      </div>
+    </li>
+    {%- endfor -%}
+    <li id="template_no_results" class="post-list-item">
+      <h3 class="post-title">No results found</h3>
+    </li>
+  </ul>
+</template>
 {%- endif -%}
 
 <script>
@@ -63,7 +65,7 @@ layout: default
   var fuse = null;
 
   var searchInput = document.querySelector('#search-input');
-  searchInput.value = getUrlVars()['q'] || "";
+  searchInput.value = getUrlVars()['search'] || "";
   
   var postsList = document.querySelector('#post-list');
   var postsFullList = document.querySelector('#post-full-list');

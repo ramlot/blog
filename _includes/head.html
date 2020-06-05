@@ -7,4 +7,11 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="{{ site.theme_color }}"/>
 <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
-{% seo %}
+<title>
+  {%if page.title %}
+    {{ page.title }}
+  {% else %}
+    {{ site.title }}
+  {% endif %}
+</title>
+{% seo title=false %}

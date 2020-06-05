@@ -28,7 +28,7 @@ layout: default
   <li id="template_post{{ post.id | replace: '/', '_' | replace: '.', '_' | escape }}" class="post-list-item">
     {%- assign date_format = site.plainwhite.date_format | default: "%b %-d, %Y" -%}
     <a class="post-link" href="{{ post.url | relative_url }}">
-      <h2 class="post-title">{{ post.title | escape }}</h2>
+      <h2 class="post-title">{{ post.h1_title | escape }}</h2>
     </a>
     <div class="post-meta">
       <ul class="post-tags">
@@ -51,12 +51,12 @@ layout: default
   var dataList = [
     {% for post in site.posts %}
       {
-        "id"        : "template_post{{ post.id | replace: '/', '_' | replace: '.', '_' | escape }}",
-        "title"     : "{{ post.title | escape }}",
-        "desc"      : "{{ post.desc | escape }}",
-        "tags"      : "{{ post.tags | join: ', ' }}",
-        "url"       : "{{ site.baseurl }}{{ post.url }}",
-        "date"      : "{{ post.date }}"
+        "id"          : "template_post{{ post.id | replace: '/', '_' | replace: '.', '_' | escape }}",
+        "title"       : "{{ post.title | escape }}",
+        "description" : "{{ post.description | escape }}",
+        "tags"        : "{{ post.tags | join: ', ' }}",
+        "url"         : "{{ site.baseurl }}{{ post.url }}",
+        "date"        : "{{ post.date }}"
       } {% unless forloop.last %},{% endunless %}
     {% endfor %}
   ];
@@ -78,7 +78,7 @@ layout: default
       keys: [
         "url",
         "title",
-        "desc",
+        "description",
         "tags"
       ]
     });

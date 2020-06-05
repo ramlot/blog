@@ -1,6 +1,12 @@
+---
+layout: null
+---
 var CACHE_NAME = 'blog-ramlot-eu-cache-v1';
 var urlsToCache = [
-  '/'
+  '/',
+  {%- for post in site.posts -%}
+  {{ post.url }},
+  {%- endfor -%}
 ];
 
 self.addEventListener('install', function(event) {
